@@ -1,4 +1,3 @@
-
 class Solution {
     //        0부터 9까지 좌표 {y,x}
     int[][] numpadPos = {
