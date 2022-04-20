@@ -1,6 +1,6 @@
 class Solution {
     //        0부터 9까지 좌표 {y,x}
-    int[][] numpadPos = {
+    int[][] ints = {
             {3,1}, //0
             {0,0}, //1
             {0,1}, //2
@@ -13,19 +13,21 @@ class Solution {
             {2,2}  //9
     };
     //초기 위치
-    int[] leftPos = {3,0};
-    int[] rightPos = {3,2};
+    int[] leftPosi = {3,0};
+    int[] rightPosi = {3,2};
     String hand;
     public String solution(int[] numbers, String hand) {
         this.hand = (hand.equals("right")) ? "R" : "L";
 
         String answer = "";
         for (int num : numbers) {
-            String Umji = pushNumber(num);
-            answer += Umji;
+            String whatMove = pushNumber(num);
+            answer += whatMove;
 
-            if(Umji.equals("L")) {leftPos = numpadPos[num]; continue;}
-            if(Umji.equals("R")) {rightPos = numpadPos[num]; continue;}
+            if(whatMove.equals("L")) {
+                leftPosi = ints[num]; continue;}
+            if(whatMove.equals("R")) {
+                rightPosi = ints[num]; continue;}
         }
         return answer;
     }
@@ -36,15 +38,15 @@ class Solution {
         if(num==3 || num==6 || num==9) return "R";
 
         // 2,5,8,0 일때 어디 손가락이 가까운가
-        if(getDist(leftPos, num) > getDist(rightPos, num)) return "R";
-        if(getDist(leftPos, num) < getDist(rightPos, num)) return "L";
+        if(distance(leftPosi, num) > distance(rightPosi, num)) return "R";
+        if(distance(leftPosi, num) < distance(rightPosi, num)) return "L";
 
         //같으면 손잡이
         return this.hand;
     }
 
     //해당 위치와 번호 위치의 거리
-    private int getDist(int[] pos, int num) {
-        return Math.abs(pos[0]-numpadPos[num][0]) + Math.abs(pos[1]-numpadPos[num][1]);
+    private int distance(int[] pos, int num) {
+        return Math.abs(pos[0]- ints[num][0]) + Math.abs(pos[1]- ints[num][1]);
     }
 }

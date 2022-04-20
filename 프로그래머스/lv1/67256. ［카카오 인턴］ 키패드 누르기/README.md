@@ -1,10 +1,10 @@
 # [level 1] [카카오 인턴] 키패드 누르기 - 67256 
 
-[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/67256?language=java) 
+[문제 링크](https://programmers.co.kr/learn/courses/30/lessons/67256#) 
 
 ### 성능 요약
 
-메모리: 77.9 MB, 시간: 2.60 ms
+메모리: 75.5 MB, 시간: 3.17 ms
 
 ### 구분
 
